@@ -6,43 +6,20 @@
 
 using namespace std;
 
-// Загальний шаблон
+// РЎРїРµС†С–Р°Р»С–Р·Р°С†С–С— РґР»СЏ РїРѕС‚СЂС–Р±РЅРёС… С‚РёРїС–РІ
 template <typename T>
-void printTypeName(const T&) {
-    cout << "Невідомий тип" << endl;
+void printTypeNameI (const T& type) {
+    cout << "РўРёРї: " << typeid(type).name() << endl;
 }
 
-// Спеціалізації для потрібних типів
-template <>
-void printTypeName<int>(const int&) {
-    cout << "Тип: int" << endl;
-}
 
-// double 
-template <>
-void printTypeName<double>(const double&) {
-    cout << "Тип: double" << endl;
-}
-
-// char
-template <>
-void printTypeName<char>(const char&) {
-    cout << "Тип: char" << endl;
-}
-
-// string
-template <>
-void printTypeName<string>(const string&) {
-    cout << "Тип: string" << endl;
-}
-
-// функция преобразования числа в символ (по индексу крч)
+// С„СѓРЅРєС†РёСЏ РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёСЏ С‡РёСЃР»Р° РІ СЃРёРјРІРѕР» (РїРѕ РёРЅРґРµРєСЃСѓ РєСЂС‡)
 void printCharFromInt(int num) {
     char* ch = reinterpret_cast<char*>(&num);
-    cout << "Символ: " << *ch << endl;
+    cout << "РЎРёРјРІРѕР»: " << *ch << endl;
 }
 
-// дальше просто вызовы функций, переменные и так далее.
+// РґР°Р»СЊС€Рµ РїСЂРѕСЃС‚Рѕ РІС‹Р·РѕРІС‹ С„СѓРЅРєС†РёР№, РїРµСЂРµРјРµРЅРЅС‹Рµ Рё С‚Р°Рє РґР°Р»РµРµ.
 
 int main() {
     int a = 10;
@@ -50,10 +27,8 @@ int main() {
     char c = 'X';
     string s = "Hello";
 
-    printTypeName(a);
-    printTypeName(b);
-    printTypeName(c);
-    printTypeName(s);
+
+    printTypeNameI(s);
 
     return 0;
 }
